@@ -1,0 +1,15 @@
+#!/bin/bash
+echo " *******-starting CI CD pipeline Tasks-******"
+#-BUILD
+echo ""
+echo "..... build phase sarted :: compiling source code :: ....."
+cd java_web_code
+mvn install
+
+#-BUILD (TEST)
+echo ""
+echo "..... Test phase sarted :: Testing via automated scripts :: ....."
+cd ../integration-testing/
+mvn clean verify -P integration -test
+
+
